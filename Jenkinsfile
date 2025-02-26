@@ -31,7 +31,7 @@ pipeline {
 
                     ./mvnw package -DskipTests \
 
-                    -Dquarkus.jib.base-jvm-image=quay.io/organization/redhattraining/do400-java-alpine-openjdk11-jre \
+                    -Dquarkus.jib.base-jvm-image=https://quay.io/organization/redhattraining/do400-java-alpine-openjdk11-jre \
 
                     -Dquarkus.container-image.build=true \
 
