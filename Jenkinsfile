@@ -1,54 +1,28 @@
 pipeline {
 
+    agent {
 
-
-  agent {
-
-
-
-    node { label "maven" }
-
-
-
-  }
-
-
-
-  environment { QUAY = credentials('QUAY_USER') }
-
-  
-
-
-
-  stages {
-
-
-
-    stage ('test') {
-
-
-
-      steps {
-
-
-
-        sh "./mvnw verify"
-
-
-
-        
-
-
-
-      }
-
-
+        node { label "maven" }
 
     }
-
     
+    environment { QUAY = credentials('QUAY_USER') }
 
-    stage("Build & Push Image") {
+
+
+    stages {
+
+        stage("Test") {
+
+            steps {
+
+                sh "./mvnw verify"
+
+            }
+
+        }
+
+       	stage("Build & Push Image") {
 
             steps {
 
@@ -90,10 +64,6 @@ pipeline {
 
         }
 
-    
-
-  }
-
-
+    }
 
 }
