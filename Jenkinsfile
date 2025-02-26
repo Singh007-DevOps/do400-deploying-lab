@@ -2,7 +2,7 @@ pipeline {
 
   agent {
 
-    noede { label "maven" }
+    node { label "maven" }
 
   }
 
